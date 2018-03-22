@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Trm_Billing</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="meter_display">
+        <item>SELECT</item>
+        <item>Non Digital</item>
+        <item>Digital</item>
+    </string-array>
+
+</resources>
