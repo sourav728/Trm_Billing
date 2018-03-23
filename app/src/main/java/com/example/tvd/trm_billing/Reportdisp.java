@@ -182,7 +182,7 @@ public class Reportdisp extends Activity {
 	printer m_printer;
 
 	private String mConnectedDeviceName = "";
-
+	Button printbtn,cancelbtn;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -202,6 +202,9 @@ public class Reportdisp extends Activity {
 		//Get the values from previous activity
 		dbh = new Databasehelper(this);
 		dbh.openDatabase();
+
+		printbtn = (Button) findViewById(R.id.btn_print);
+		cancelbtn = (Button) findViewById(R.id.btn_cancel);
 
 		if (Build.MANUFACTURER.matches("alps")) {
 			m_printer = new printer();
@@ -254,7 +257,36 @@ public class Reportdisp extends Activity {
 			actionbaricon();
 		}
 
-		BottomNavigationView buttomnavigationview = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+		printbtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (!rep_consid.equals("")) {
+					if (rep_display.equals("billing")) {
+						if (rep_phno.equals("N") || rep_aadhaar_no.equals("0") || rep_mail_id.equals("0")) {
+							showdialog(UPDATE_DLG);
+						} else {
+							updating_billing_record();
+							showdialog(PRINT_DLG);
+							cc.resetAllValues();
+						}
+					} else {
+						showdialog(PRINT_DLG);
+						cc.resetAllValues();
+					}
+				} else {
+					Toast.makeText(Reportdisp.this, "Take Readings for Printing Report", Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+
+		cancelbtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				cc.resetAllValues();
+				onexit();
+			}
+		});
+		/*BottomNavigationView buttomnavigationview = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 		Menu menu = buttomnavigationview.getMenu();
 
 		buttomnavigationview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -287,7 +319,7 @@ public class Reportdisp extends Activity {
 				}
 				return false;
 			}
-		});
+		});*/
 
 	}
 
