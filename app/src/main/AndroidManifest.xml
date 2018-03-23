@@ -68,6 +68,10 @@
             android:name=".services.Generate_Bill_Service"
             android:enabled="true"
             android:exported="true" />
+        <receiver android:name=".invoke.Apk_Notification"/>
+        <receiver android:name=".invoke.Billing_File_Notification"/>
+        <receiver android:name=".invoke.MR_Track_Notification"/>
+        <receiver android:name=".invoke.Generate_Bill_Notification"/>
 
         <activity android:name=".activities.ConsumerBilling" />
         <activity android:name=".activities.Billstatusext1" />
@@ -75,6 +79,7 @@
         <activity android:name=".activities.Billstatusext" />
         <activity android:name=".activities.BillsnotPrinted" />
         <activity android:name=".activities.Tariffwisebilled"></activity>
+        <activity android:name=".Reportdisp"/>
     </application>
 
 </manifest>

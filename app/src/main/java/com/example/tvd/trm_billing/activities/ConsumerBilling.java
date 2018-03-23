@@ -480,6 +480,9 @@ public class ConsumerBilling extends Activity {
                             sub_ab_normal_readings();
                         } else showdialog(DLG_TIME_OVER);
                         break;
+                    case R.id.item4 :
+                        oncancel();
+                        break;
                 }
                 return false;
             }

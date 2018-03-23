@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/item1" android:icon="@drawable/ic_action_overflow" android:showAsAction="always">
+        <menu>
+            <item android:id="@+id/item2" android:showAsAction="ifRoom" android:title="Hybrid"/>
+            <item android:id="@+id/item3" android:showAsAction="ifRoom" android:title="Normal"/>
+            <item android:id="@+id/item4" android:showAsAction="ifRoom" android:title="Satellite"/>
+            <item android:id="@+id/item5" android:showAsAction="ifRoom" android:title="Terrain"/>
+        </menu>
+    </item>
+    <item android:id="@+id/item6" android:icon="@drawable/ic_action_place" android:showAsAction="always">
+        <menu>
+            <item android:id="@+id/item7" android:title="Search by RRNO" android:showAsAction="ifRoom"/>
+            <item android:id="@+id/item8" android:title="Search by Tariff" android:showAsAction="ifRoom"/>
+            <item android:id="@+id/item9" android:title="Search by Payments" android:showAsAction="ifRoom"/>
+        </menu>
+    </item>
+    
+
+</menu>

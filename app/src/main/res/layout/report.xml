@@ -1831,7 +1831,6 @@
 
             </RelativeLayout>
 
-
         </LinearLayout>
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -1839,8 +1838,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             app:menu="@menu/bottom_menu"
+            app:itemBackground="@color/background"
             app:itemIconTint="@android:color/white"
-            app:itemTextColor="@android:color/white" />
+            app:itemTextColor="@android:color/white"/>
     </RelativeLayout>
 
 </ScrollView>

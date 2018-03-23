@@ -20,6 +20,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.Layout;
@@ -82,6 +84,7 @@ import java.util.concurrent.ExecutorService;
 
 import static android.text.Layout.Alignment.ALIGN_CENTER;
 import static android.text.Layout.Alignment.ALIGN_NORMAL;
+import static com.example.tvd.trm_billing.values.ConstantValues.BILLING_CUT_OFF_TIME;
 import static com.example.tvd.trm_billing.values.ConstantValues.BILLING_DOWNLOADED;
 import static com.example.tvd.trm_billing.values.ConstantValues.DOWNLOAD_FILE_NAME;
 import static com.example.tvd.trm_billing.values.ConstantValues.PREFS_NAME;
@@ -250,6 +253,42 @@ public class Reportdisp extends Activity {
 			rep_report = "Billsearch";
 			actionbaricon();
 		}
+
+		BottomNavigationView buttomnavigationview = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+		Menu menu = buttomnavigationview.getMenu();
+
+		buttomnavigationview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+			@Override
+			public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+				switch (item.getItemId())
+				{
+					case R.id.item1:
+						if (!rep_consid.equals("")) {
+							if (rep_display.equals("billing")) {
+								if (rep_phno.equals("N") || rep_aadhaar_no.equals("0") || rep_mail_id.equals("0")) {
+									showdialog(UPDATE_DLG);
+								} else {
+									updating_billing_record();
+									showdialog(PRINT_DLG);
+									cc.resetAllValues();
+								}
+							} else {
+								showdialog(PRINT_DLG);
+								cc.resetAllValues();
+							}
+						} else {
+							Toast.makeText(Reportdisp.this, "Take Readings for Printing Report", Toast.LENGTH_SHORT).show();
+						}
+						break;
+					case R.id.item2:
+						cc.resetAllValues();
+						onexit();
+						break;
+				}
+				return false;
+			}
+		});
+
 	}
 
 	@Override
