@@ -36,6 +36,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
@@ -94,6 +95,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -238,7 +240,7 @@ public class ConsumerBilling extends Activity {
         try {
             intializeViews(); // Calling Function to initialize Views
             cons_display = "billing";
-            actionbaricon();
+           // actionbaricon();
 
 			/*Internet = isNetworkAvailable(getApplicationContext());
 			if (!Internet) {
@@ -449,20 +451,53 @@ public class ConsumerBilling extends Activity {
             public void afterTextChanged(Editable s) {
             }
         });
+        BottomNavigationView buttomnavigationview = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        Menu menu = buttomnavigationview.getMenu();
+
+        buttomnavigationview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.item1:
+                        if (fcall.compare_end_billing_time(fcall.convertTo24Hour(BILLING_CUT_OFF_TIME))) {
+                            onpreviousclick = true;
+                            c.close();
+                            onprevious();
+                            checkbilled(cons_Num);
+                            onpreviousclick = false;
+                        } else showdialog(DLG_TIME_OVER);
+                        break;
+                    case R.id.item2:
+                        if (fcall.compare_end_billing_time(fcall.convertTo24Hour(BILLING_CUT_OFF_TIME))) {
+                            c.close();
+                            onnext();
+                            checkbilled(cons_Num);
+                        } else showdialog(DLG_TIME_OVER);
+                        break;
+                    case R.id.item3:
+                        if (fcall.compare_end_billing_time(fcall.convertTo24Hour(BILLING_CUT_OFF_TIME))) {
+                            sub_ab_normal_readings();
+                        } else showdialog(DLG_TIME_OVER);
+                        break;
+                }
+                return false;
+            }
+        });
 
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater mi = getMenuInflater();
-        mi.inflate(R.menu.billingmenu, menu);
+        mi.inflate(R.menu.bottom_nav_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item1:
+            case R.id.action_previous:
                 if (fcall.compare_end_billing_time(fcall.convertTo24Hour(BILLING_CUT_OFF_TIME))) {
                     onpreviousclick = true;
                     c.close();
@@ -470,41 +505,42 @@ public class ConsumerBilling extends Activity {
                     checkbilled(cons_Num);
                     onpreviousclick = false;
                 } else showdialog(DLG_TIME_OVER);
-                /*onpreviousclick = true;
+                onpreviousclick = true;
                 c.close();
                 onprevious();
                 checkbilled(cons_Num);
-                onpreviousclick = false;*/
+                onpreviousclick = false;
                 break;
 
-            case R.id.item2:
+            case R.id.action_next:
                 if (fcall.compare_end_billing_time(fcall.convertTo24Hour(BILLING_CUT_OFF_TIME))) {
                     c.close();
                     onnext();
                     checkbilled(cons_Num);
                 } else showdialog(DLG_TIME_OVER);
-                /*c.close();
+                c.close();
                 onnext();
-                checkbilled(cons_Num);*/
+                checkbilled(cons_Num);
                 break;
 
-            case R.id.item3:
+            case R.id.action_print:
                 if (fcall.compare_end_billing_time(fcall.convertTo24Hour(BILLING_CUT_OFF_TIME))) {
                     sub_ab_normal_readings();
                 } else showdialog(DLG_TIME_OVER);
-                /*try {
+                try {
                     checkdlbilled();
                 } catch (ParseException e) {
                     e.printStackTrace();
-                }*/
+                }
                 break;
 
-            case R.id.item4:
+            case R.id.action_back:
                 oncancel();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+*/
 
     private void sub_ab_normal_readings() {
         if (!TextUtils.isEmpty(etCurReading.getText().toString())) {

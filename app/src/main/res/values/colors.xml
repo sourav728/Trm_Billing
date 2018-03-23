@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="background">#212121</color>
     <color name="hambergercolor">#FFC107</color>
+    <color name="white">#ffffffff</color>
+    <color name="blue">#039BE5</color>
 </resources>

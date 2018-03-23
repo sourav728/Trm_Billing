@@ -69,7 +69,12 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".activities.ConsumerBilling"></activity>
+        <activity android:name=".activities.ConsumerBilling" />
+        <activity android:name=".activities.Billstatusext1" />
+        <activity android:name=".activities.BillStatus" />
+        <activity android:name=".activities.Billstatusext" />
+        <activity android:name=".activities.BillsnotPrinted" />
+        <activity android:name=".activities.Tariffwisebilled"></activity>
     </application>
 
 </manifest>

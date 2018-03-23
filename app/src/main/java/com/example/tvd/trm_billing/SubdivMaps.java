@@ -22,6 +22,7 @@ import com.akexorcist.googledirection.model.Direction;
 import com.akexorcist.googledirection.util.DirectionConverter;
 import com.example.tvd.trm_billing.database.Databasehelper;
 import com.example.tvd.trm_billing.services.ClassGPS;
+import com.example.tvd.trm_billing.values.DataParser;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -48,6 +49,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import static com.example.tvd.trm_billing.values.ConstantValues.DESTINATION_LATITUDE;
+import static com.example.tvd.trm_billing.values.ConstantValues.DESTINATION_LONGITUDE;
 
 
 public class SubdivMaps extends FragmentActivity implements OnMapReadyCallback, DirectionCallback {

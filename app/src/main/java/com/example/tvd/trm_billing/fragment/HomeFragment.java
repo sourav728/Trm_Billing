@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.tvd.trm_billing.MainActivity;
 import com.example.tvd.trm_billing.R;
+import com.example.tvd.trm_billing.activities.ConsumerBilling;
 import com.example.tvd.trm_billing.database.Databasehelper;
 import com.example.tvd.trm_billing.values.FunctionCalls;
 import com.example.tvd.trm_billing.values.GetSetValues;
@@ -78,8 +79,8 @@ public class HomeFragment extends Fragment {
                     if (billingstatus.equals("BO")) {
                         if (billing_flag.equals("N") || billing_flag.equals("n")) {
                             if (dbh.getData().getCount() > 0) {
-                               /* Intent next = new Intent(getActivity(), ConsumerBilling.class);
-                                startActivity(next);*/
+                                Intent next = new Intent(getActivity(), ConsumerBilling.class);
+                                startActivity(next);
                             } else showDialog(BILLING_ERROR);
                         } else fcall.showtoastatcenter(getActivity(), "Can not take Billing from this Device");
                     } else showDialog(BILLINGSTS_DLG);

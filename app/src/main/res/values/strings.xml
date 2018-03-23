@@ -13,5 +13,10 @@
         <item>Non Digital</item>
         <item>Digital</item>
     </string-array>
-
+    <string name="no_label">NO</string>
+    <string name="printsuccess">Print Success</string>
+    <string name="askprint">Do you want to Print..??</string>
+    <string name="exitbilling">Billing Print Generated Successfully..??</string>
+    <string name="printfailed">Print Failed</string>
+    <string name="rupee">\u20B9</string>
 </resources>

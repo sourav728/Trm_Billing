@@ -51,7 +51,11 @@ import android.widget.Toast;
 import com.analogics.thermalAPI.Bluetooth_Printer_3inch_prof_ThermalAPI;
 import com.analogics.thermalprinter.AnalogicsThermalPrinter;
 import com.analogics.utils.AnalogicsUtil;
+import com.example.tvd.trm_billing.activities.BillsnotPrinted;
+import com.example.tvd.trm_billing.activities.Billstatusext;
+import com.example.tvd.trm_billing.activities.Billstatusext1;
 import com.example.tvd.trm_billing.activities.ConsumerBilling;
+import com.example.tvd.trm_billing.activities.Tariffwisebilled;
 import com.example.tvd.trm_billing.database.Databasehelper;
 import com.example.tvd.trm_billing.hardware.printer;
 import com.example.tvd.trm_billing.invoke.Datainvoke;
@@ -59,6 +63,7 @@ import com.example.tvd.trm_billing.invoke.SendingData;
 import com.example.tvd.trm_billing.services.BluetoothService;
 import com.example.tvd.trm_billing.values.FunctionCalls;
 import com.example.tvd.trm_billing.values.GetSetValues;
+import com.example.tvd.trm_billing.values.MastoutReading;
 import com.lvrenyang.io.Pos;
 import com.ngx.BluetoothPrinter;
 import com.ngx.Enums.NGXBarcodeCommands;
@@ -250,7 +255,7 @@ public class Reportdisp extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater mi = getMenuInflater();
-		mi.inflate(R.menu.buttonmenu, menu);
+		mi.inflate(R.menu.bottom_menu, menu);
 		return true;
 	}
 
